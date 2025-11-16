@@ -1,0 +1,103 @@
+/* Mượt khi scroll tới các section */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Các section CV */
+.cv-item {
+  border-left: 3px solid #10b981;
+  padding-left: 1rem;
+}
+
+.cv-section {
+  background-color: #f8fafc;
+  color: #111827;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+/* Hiệu ứng bounce cho icon hoặc phần tử */
+@keyframes bounce-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-bounce-y {
+  animation: bounce-y 1.5s infinite;
+}
+
+
+
+/* Hiệu ứng xoay chậm */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Hiệu ứng hover sáng cho section chính */
+section {
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 0 20px #FFD700;
+  transform: scale(1.02);
+}
+
+/* Nền banner và chữ màu vàng */
+.banner-section {
+  background-color: #000000;
+  color: #FFD700;
+}
+
+/* Button style */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------- Watermark cho section Pikachu ---------------- */
+#pikachu {
+  position: relative;
+  overflow: hidden; /* tránh watermark tràn ra ngoài */
+}
+
+#pikachu::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 100px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.9;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  pointer-events: none;
+  z-index: 0; /* nằm dưới nội dung */
+}
+
+/* Nội dung Pikachu luôn nằm trên watermark */
+#pikachu .content-section {
+  position: relative;
+  z-index: 1;
+}
+
